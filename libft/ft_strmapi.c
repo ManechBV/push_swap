@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/27 20:18:18 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/27 20:18:50 by mabenois         ###   ########.fr       */
+/*   Created: 2025/10/24 17:21:04 by mabenois          #+#    #+#             */
+/*   Updated: 2025/10/24 19:36:33 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vars.h"
+#include "libft.h"
 
-#include <stdio.h> //   AAAAA EEENNNNLLLLEEEVVVVVEEERRRRRR
-
-int	main(int ac, char **av)
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	t_vars	*vars;
-	
-	if (ac < 2)
-		return (-1);
-	vars = init_vars();
-	if (!vars)	
-		return (-1);
-	ft_convert_argv(ac, av, vars->stk_a);
+	unsigned int	i;
+	char			*res;
 
-	t_lst	*curr = vars->stk_a;
-	while (curr != NULL)
+	res = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (!res)
+		return (NULL);
+	i = 0;
+	while (s[i])
 	{
-		printf("%d\n", curr->val);
-		curr = curr->next;
+		res[i] = f(i, s[i]);
+		i++;
 	}
-
-	return (0);
+	res[i] = '\0';
+	return (res);
 }

@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/27 20:18:18 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/27 20:18:50 by mabenois         ###   ########.fr       */
+/*   Created: 2025/10/17 15:38:31 by mabenois          #+#    #+#             */
+/*   Updated: 2025/10/27 16:00:49 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vars.h"
+#include "libft.h"
 
-#include <stdio.h> //   AAAAA EEENNNNLLLLEEEVVVVVEEERRRRRR
-
-int	main(int ac, char **av)
+void	*ft_calloc(size_t nmemb, size_t size)
 {
-	t_vars	*vars;
-	
-	if (ac < 2)
-		return (-1);
-	vars = init_vars();
-	if (!vars)	
-		return (-1);
-	ft_convert_argv(ac, av, vars->stk_a);
+	size_t	total_size;
+	void	*ptr;
 
-	t_lst	*curr = vars->stk_a;
-	while (curr != NULL)
+	if (nmemb == 0 || size == 0)
 	{
-		printf("%d\n", curr->val);
-		curr = curr->next;
+		ptr = malloc(0);
+		if (!ptr)
+			return (NULL);
+		return (ptr);
 	}
-
-	return (0);
+	total_size = nmemb * size;
+	if (total_size / size != nmemb)
+		return (NULL);
+	ptr = malloc(total_size);
+	if (ptr == NULL)
+		return (NULL);
+	ft_bzero(ptr, total_size);
+	return (ptr);
 }

@@ -1,36 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/27 20:18:18 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/27 20:18:50 by mabenois         ###   ########.fr       */
+/*   Created: 2025/10/14 11:16:04 by mabenois          #+#    #+#             */
+/*   Updated: 2025/10/14 11:23:48 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vars.h"
+#include "libft.h"
 
-#include <stdio.h> //   AAAAA EEENNNNLLLLEEEVVVVVEEERRRRRR
-
-int	main(int ac, char **av)
+int	ft_isalnum(int c)
 {
-	t_vars	*vars;
-	
-	if (ac < 2)
-		return (-1);
-	vars = init_vars();
-	if (!vars)	
-		return (-1);
-	ft_convert_argv(ac, av, vars->stk_a);
-
-	t_lst	*curr = vars->stk_a;
-	while (curr != NULL)
-	{
-		printf("%d\n", curr->val);
-		curr = curr->next;
-	}
-
+	if (ft_isalpha(c) != 0 || ft_isdigit(c) != 0)
+		return (8);
 	return (0);
 }

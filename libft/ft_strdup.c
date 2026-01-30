@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/27 20:18:18 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/27 20:18:50 by mabenois         ###   ########.fr       */
+/*   Created: 2025/10/17 16:42:41 by mabenois          #+#    #+#             */
+/*   Updated: 2025/10/17 17:12:27 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vars.h"
+#include "libft.h"
 
-#include <stdio.h> //   AAAAA EEENNNNLLLLEEEVVVVVEEERRRRRR
-
-int	main(int ac, char **av)
+char	*ft_strdup(const char *s)
 {
-	t_vars	*vars;
-	
-	if (ac < 2)
-		return (-1);
-	vars = init_vars();
-	if (!vars)	
-		return (-1);
-	ft_convert_argv(ac, av, vars->stk_a);
+	char	*new_str;
+	int		i;
+	int		size;
 
-	t_lst	*curr = vars->stk_a;
-	while (curr != NULL)
+	size = ft_strlen(s) + 1;
+	new_str = malloc(sizeof(char) * size);
+	if (!new_str)
+		return (NULL);
+	i = 0;
+	while (s[i] != 0)
 	{
-		printf("%d\n", curr->val);
-		curr = curr->next;
+		new_str[i] = s[i];
+		i++;
 	}
-
-	return (0);
+	new_str[i] = '\0';
+	return (new_str);
 }

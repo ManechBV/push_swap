@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/27 20:18:18 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/27 20:18:50 by mabenois         ###   ########.fr       */
+/*   Created: 2025/10/15 16:46:53 by mabenois          #+#    #+#             */
+/*   Updated: 2025/10/16 21:02:40 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vars.h"
+#include "libft.h"
 
-#include <stdio.h> //   AAAAA EEENNNNLLLLEEEVVVVVEEERRRRRR
-
-int	main(int ac, char **av)
+char	*ft_strrchr(const char *s, int c)
 {
-	t_vars	*vars;
-	
-	if (ac < 2)
-		return (-1);
-	vars = init_vars();
-	if (!vars)	
-		return (-1);
-	ft_convert_argv(ac, av, vars->stk_a);
+	int		i;
+	char	*last_occ;
 
-	t_lst	*curr = vars->stk_a;
-	while (curr != NULL)
+	last_occ = NULL;
+	i = 0;
+	while (s[i])
 	{
-		printf("%d\n", curr->val);
-		curr = curr->next;
+		if (s[i] == (char)c)
+			last_occ = (char *)(&s[i]);
+		i++;
 	}
-
-	return (0);
+	if (s[i] == (char)c)
+		last_occ = (char *)(&s[i]);
+	return (last_occ);
 }

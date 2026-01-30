@@ -1,36 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/27 20:18:18 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/27 20:18:50 by mabenois         ###   ########.fr       */
+/*   Created: 2025/10/15 10:06:10 by mabenois          #+#    #+#             */
+/*   Updated: 2025/10/24 18:57:47 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vars.h"
+#include "libft.h"
 
-#include <stdio.h> //   AAAAA EEENNNNLLLLEEEVVVVVEEERRRRRR
-
-int	main(int ac, char **av)
+void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	t_vars	*vars;
-	
-	if (ac < 2)
-		return (-1);
-	vars = init_vars();
-	if (!vars)	
-		return (-1);
-	ft_convert_argv(ac, av, vars->stk_a);
+	size_t	i;
+	size_t	start;
+	size_t	increment;
 
-	t_lst	*curr = vars->stk_a;
-	while (curr != NULL)
+	if (dest == ((void *)0) && src == ((void *)0))
+		return (NULL);
+	i = 0;
+	increment = 1;
+	start = 0;
+	if (src < dest)
 	{
-		printf("%d\n", curr->val);
-		curr = curr->next;
+		increment = -1;
+		start = n - 1;
 	}
-
-	return (0);
+	while (i < n)
+	{
+		((unsigned char *)dest)[start] = ((unsigned char *)src)[start];
+		start += increment;
+		i++;
+	}
+	return (dest);
 }

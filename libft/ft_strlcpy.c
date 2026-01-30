@@ -1,36 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/27 20:18:18 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/27 20:18:50 by mabenois         ###   ########.fr       */
+/*   Created: 2025/10/15 14:16:51 by mabenois          #+#    #+#             */
+/*   Updated: 2025/10/18 16:29:53 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vars.h"
+#include "libft.h"
 
-#include <stdio.h> //   AAAAA EEENNNNLLLLEEEVVVVVEEERRRRRR
-
-int	main(int ac, char **av)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	t_vars	*vars;
-	
-	if (ac < 2)
-		return (-1);
-	vars = init_vars();
-	if (!vars)	
-		return (-1);
-	ft_convert_argv(ac, av, vars->stk_a);
+	size_t	i;
+	size_t	ret;
 
-	t_lst	*curr = vars->stk_a;
-	while (curr != NULL)
+	ret = ft_strlen(src);
+	if (size == 0)
+		return (ret);
+	i = 0;
+	while (src[i] != 0 && i < size - 1)
 	{
-		printf("%d\n", curr->val);
-		curr = curr->next;
+		dst[i] = src[i];
+		i++;
 	}
-
-	return (0);
+	dst[i] = '\0';
+	return (ret);
 }

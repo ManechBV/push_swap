@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/27 20:18:18 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/27 20:18:50 by mabenois         ###   ########.fr       */
+/*   Created: 2025/10/15 17:33:30 by mabenois          #+#    #+#             */
+/*   Updated: 2025/10/15 17:56:16 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vars.h"
+#include "libft.h"
 
-#include <stdio.h> //   AAAAA EEENNNNLLLLEEEVVVVVEEERRRRRR
-
-int	main(int ac, char **av)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	t_vars	*vars;
-	
-	if (ac < 2)
-		return (-1);
-	vars = init_vars();
-	if (!vars)	
-		return (-1);
-	ft_convert_argv(ac, av, vars->stk_a);
+	unsigned char	*ps1;
+	unsigned char	*ps2;
+	size_t			i;
 
-	t_lst	*curr = vars->stk_a;
-	while (curr != NULL)
+	if (n == 0)
+		return (0);
+	ps1 = (unsigned char *)s1;
+	ps2 = (unsigned char *)s2;
+	i = 0;
+	while (i < n - 1)
 	{
-		printf("%d\n", curr->val);
-		curr = curr->next;
+		if (ps1[i] != ps2[i])
+			return (ps1[i] - ps2[i]);
+		i++;
 	}
-
-	return (0);
+	return (ps1[i] - ps2[i]);
 }

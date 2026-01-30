@@ -1,36 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_substr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/27 20:18:18 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/27 20:18:50 by mabenois         ###   ########.fr       */
+/*   Created: 2025/10/17 17:26:17 by mabenois          #+#    #+#             */
+/*   Updated: 2025/10/23 21:23:08 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vars.h"
+#include "libft.h"
 
-#include <stdio.h> //   AAAAA EEENNNNLLLLEEEVVVVVEEERRRRRR
-
-int	main(int ac, char **av)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	t_vars	*vars;
-	
-	if (ac < 2)
-		return (-1);
-	vars = init_vars();
-	if (!vars)	
-		return (-1);
-	ft_convert_argv(ac, av, vars->stk_a);
+	char	*ptr;
+	size_t	size;
 
-	t_lst	*curr = vars->stk_a;
-	while (curr != NULL)
+	size = ft_strlen(s) - start;
+	if (len < size)
+		size = len;
+	size++;
+	if (start >= ft_strlen(s))
 	{
-		printf("%d\n", curr->val);
-		curr = curr->next;
+		ptr = malloc(sizeof(char));
+		if (!ptr)
+			return (NULL);
+		ptr[0] = 0;
+		return (ptr);
 	}
-
-	return (0);
+	ptr = malloc(size * sizeof(char));
+	if (!ptr)
+		return (NULL);
+	ft_strlcpy(ptr, s + start, size);
+	return (ptr);
 }

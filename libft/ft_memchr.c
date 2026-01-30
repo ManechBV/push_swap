@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/01/27 20:18:18 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/27 20:18:50 by mabenois         ###   ########.fr       */
+/*   Created: 2025/10/15 17:06:12 by mabenois          #+#    #+#             */
+/*   Updated: 2025/10/16 21:51:53 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "vars.h"
+#include "libft.h"
 
-#include <stdio.h> //   AAAAA EEENNNNLLLLEEEVVVVVEEERRRRRR
-
-int	main(int ac, char **av)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	t_vars	*vars;
-	
-	if (ac < 2)
-		return (-1);
-	vars = init_vars();
-	if (!vars)	
-		return (-1);
-	ft_convert_argv(ac, av, vars->stk_a);
+	size_t			i;
+	unsigned char	*p;
 
-	t_lst	*curr = vars->stk_a;
-	while (curr != NULL)
+	p = (unsigned char *)s;
+	i = 0;
+	while (i < n)
 	{
-		printf("%d\n", curr->val);
-		curr = curr->next;
+		if ((unsigned char)p[i] == (unsigned char)c)
+			return (&p[i]);
+		i++;
 	}
-
-	return (0);
+	return (NULL);
 }
