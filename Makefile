@@ -1,10 +1,11 @@
 SRCS = srcs/main.c \
 		srcs/lst.c \
 		srcs/parsing.c \
-		srcs/vars.c
+		srcs/vars.c \
+		srcs/swap.c
 OBJS = $(SRCS:srcs/%.c=objs/%.o)
 CC = cc
-FLAGS = -Wall -Wextra -Werror 
+FLAGS = -Wall -Wextra -Werror -g
 NAME = push_swap.exe
 INCLUDE_DIRS = -I includes -I libft
 

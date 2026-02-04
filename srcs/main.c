@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 20:18:18 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/27 20:18:50 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/03 16:54:45 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ int	main(int ac, char **av)
 	if (!vars)	
 		return (-1);
 	ft_convert_argv(ac, av, vars->stk_a);
+	printf("\nlen: %d\n", vars->len_a);
+	sa(vars);
 
 	t_lst	*curr = vars->stk_a;
 	while (curr != NULL)
@@ -32,5 +34,6 @@ int	main(int ac, char **av)
 		curr = curr->next;
 	}
 
+	free_vars(vars);
 	return (0);
 }

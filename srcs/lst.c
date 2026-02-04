@@ -15,15 +15,30 @@ t_lst	*new_lst(int val)
 	return (new);
 }
 
-void	push_lst(t_lst *head, int val)
+void	free_lst(t_lst *head)
+{
+	t_lst	*curr;
+
+	curr = head;
+	while (curr->next != NULL)
+	{
+		curr = curr->next;
+		if (curr->prev)
+			free(curr->prev);
+	}
+	free(curr);
+}
+
+void	push_lst(t_lst **p_head, int val)
 {
 	t_lst	*node;
 
 	node = new_lst(val);
 	if (!node)
 		return ;
-	node->next = head;
-	head->prev = node;
+	node->next = *p_head;
+	(*p_head)->prev = node;
+	*p_head = node;
 }
 
 void	append_lst(t_lst *head, int val)
@@ -39,4 +54,19 @@ void	append_lst(t_lst *head, int val)
 		curr = curr->next;
 	node->prev = curr;
 	curr->next = node;
+}
+
+unsigned int	len_lst(t_lst *head)
+{
+	unsigned int	len;
+	t_lst			*curr;
+
+	len = 0;
+	curr = head;
+	while (curr != NULL)
+	{
+		len++;
+		curr = curr->next;
+	}
+	return (len);
 }

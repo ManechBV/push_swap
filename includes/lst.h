@@ -5,16 +5,19 @@ typedef struct s_lst
 {
 	int				val;
 	int				id;
+	int				*len;
 	struct s_lst	*next;
 	struct s_lst	*prev;
 }	t_lst;
 
 // lst.c
-t_lst	*new_lst(int val);
-void	push_lst(t_lst *head, int val);
-void	append_lst(t_lst *head, int val);
+t_lst			*new_lst(int val);
+void			free_lst(t_lst *head);
+void			push_lst(t_lst **head, int val);
+void			append_lst(t_lst *head, int val);
+unsigned int	len_lst(t_lst *head);
 
 // parsing.c
-int		ft_convert_argv(int argc, char **argv, t_lst *lst);
+int				ft_convert_argv(int argc, char **argv, t_lst *lst);
 
 #endif
