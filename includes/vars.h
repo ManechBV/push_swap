@@ -32,5 +32,12 @@ void			pb(t_vars *vars);
 void			rotate(t_lst **p_head);
 void			ra(t_vars *vars);
 void			rb(t_vars *vars);
+void			rr(t_vars *vars);
+
+// reverse_rotate.c
+void			rrotate(t_lst **p_head);
+void			rra(t_vars *vars);
+void			rrb(t_vars *vars);
+void			rrr(t_vars *vars);
 
 #endif

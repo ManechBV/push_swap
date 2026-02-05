@@ -8,8 +8,8 @@ t_vars	*init_vars()
 	new = malloc(sizeof(t_vars));
 	if (!new)
 		return (NULL);
-	new->stk_a = new_lst(0);
-	new->stk_b = new_lst(0);
+	new->stk_a = NULL;
+	new->stk_b = NULL;
 	new->len_a = 0;
 	new->len_b = 0;
 	return (new);

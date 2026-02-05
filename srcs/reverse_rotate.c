@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate.c                                           :+:      :+:    :+:   */
+/*   reverse_rotate.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/05 19:45:57 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/05 19:46:00 by mabenois         ###   ########.fr       */
+/*   Created: 2026/02/05 19:44:49 by mabenois          #+#    #+#             */
+/*   Updated: 2026/02/05 19:58:25 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,42 +14,43 @@
 #include "vars.h"
 
 #include <stdio.h>
-void	rotate(t_lst **p_head)
+void	rrotate(t_lst **p_head)
 {
 	t_lst	*first;
-	t_lst	*second;
+	t_lst	*second_last;
 	t_lst	*last;
 
 	first = *p_head;
-	second = first->next;
-	last = second;
+	last = first;
 	while (last->next != NULL)
 		last = last->next;
+	second_last = last->prev;
+	last->prev = NULL;
 	last->next = first;
+	second_last->next = NULL;
 	first->prev = last;
-	first->next = NULL;
-	second->prev = NULL;
-	*p_head = second;
+	*p_head = last;
 }
 
-void	ra(t_vars *vars)
+void	rra(t_vars *vars)
 {
 	if (vars->len_a > 2)
-		rotate(&vars->stk_a);
+		rrotate(&vars->stk_a);
 	else if (vars->len_a == 2)
 		sa(vars);
 }
 
-void	rb(t_vars *vars)
+void	rrb(t_vars *vars)
 {
 	if (vars->len_b > 2)
-		rotate(&vars->stk_b);
+		rrotate(&vars->stk_b);
 	else if (vars->len_b == 2)
 		sb(vars);
 }
 
-void	rr(t_vars *vars)
+void	rrr(t_vars *vars)
 {
-	ra(vars);
-	rb(vars);
+	rra(vars);
+	rrb(vars);
 }
+

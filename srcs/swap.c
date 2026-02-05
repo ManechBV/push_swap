@@ -6,7 +6,7 @@
 /*   By: mabenois <mabenois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 16:10:07 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/03 16:43:10 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/05 20:06:07 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,19 @@ void	swap(t_lst **p_head)
 	
 	first = *p_head;
 	second = first->next;
-	third = second->next;
 	first->prev = second;
-	first->next = third;
+	third = NULL;
+	if (second->next)
+	{
+		third = second->next;
+		first->next = third;
+	}
+	else
+		first->next = NULL;
 	second->prev = NULL;
 	second->next = first;
-	third->prev = first;
+	if (third)
+		third->prev = first;
 	*p_head = second;
 }
 

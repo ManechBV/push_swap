@@ -19,6 +19,8 @@ void	free_lst(t_lst *head)
 {
 	t_lst	*curr;
 
+	if (!head)
+		return ;
 	curr = head;
 	while (curr->next != NULL)
 	{

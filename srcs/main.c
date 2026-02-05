@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 20:18:18 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/03 16:54:45 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/05 19:58:00 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,10 @@ int	main(int ac, char **av)
 	ss(vars);
 	_debug_show_stacks(vars);
 
-	rb(vars);
+	rr(vars);
+	_debug_show_stacks(vars);
+
+	rrr(vars);
 	_debug_show_stacks(vars);
 
 	free_vars(vars);
