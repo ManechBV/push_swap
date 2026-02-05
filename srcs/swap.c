@@ -18,9 +18,7 @@ void	swap(t_lst **p_head)
 	t_lst	*first;
 	t_lst	*second;
 	t_lst	*third;
-
-	if (len_lst(*p_head) < 3)
-		return ;
+	
 	first = *p_head;
 	second = first->next;
 	third = second->next;
@@ -34,12 +32,14 @@ void	swap(t_lst **p_head)
 
 void	sa(t_vars *vars)
 {
-	swap(&vars->stk_a);
+	if (vars->len_a > 1)
+		swap(&vars->stk_a);
 }
 
 void	sb(t_vars *vars)
 {
-	swap(&vars->stk_b);
+	if (vars->len_b > 1)
+		swap(&vars->stk_b);
 }
 
 void	ss(t_vars *vars)

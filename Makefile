@@ -2,7 +2,9 @@ SRCS = srcs/main.c \
 		srcs/lst.c \
 		srcs/parsing.c \
 		srcs/vars.c \
-		srcs/swap.c
+		srcs/swap.c \
+		srcs/push.c \
+		srcs/rotate.c
 OBJS = $(SRCS:srcs/%.c=objs/%.o)
 CC = cc
 FLAGS = -Wall -Wextra -Werror -g

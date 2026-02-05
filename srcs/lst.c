@@ -55,18 +55,3 @@ void	append_lst(t_lst *head, int val)
 	node->prev = curr;
 	curr->next = node;
 }
-
-unsigned int	len_lst(t_lst *head)
-{
-	unsigned int	len;
-	t_lst			*curr;
-
-	len = 0;
-	curr = head;
-	while (curr != NULL)
-	{
-		len++;
-		curr = curr->next;
-	}
-	return (len);
-}
