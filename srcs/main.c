@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 20:18:18 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/05 19:58:00 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/05 20:42:15 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int	main(int ac, char **av)
 		return (-1);
 	ft_convert_argv(ac, av, vars);
 	_debug_show_stacks(vars);
+	/*
 
 	sa(vars);
 	_debug_show_stacks(vars);
@@ -88,6 +89,9 @@ int	main(int ac, char **av)
 	_debug_show_stacks(vars);
 
 	rrr(vars);
+	_debug_show_stacks(vars);
+	*/
+	ft_radix(vars);
 	_debug_show_stacks(vars);
 
 	free_vars(vars);

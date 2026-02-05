@@ -40,4 +40,7 @@ void			rra(t_vars *vars);
 void			rrb(t_vars *vars);
 void			rrr(t_vars *vars);
 
+// ft_radix.c
+void	ft_radix(t_vars *vars);
+
 #endif

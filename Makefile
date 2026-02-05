@@ -5,7 +5,8 @@ SRCS = srcs/main.c \
 		srcs/swap.c \
 		srcs/push.c \
 		srcs/rotate.c \
-		srcs/reverse_rotate.c
+		srcs/reverse_rotate.c \
+		srcs/ft_radix.c
 OBJS = $(SRCS:srcs/%.c=objs/%.o)
 CC = cc
 FLAGS = -Wall -Wextra -Werror -g
