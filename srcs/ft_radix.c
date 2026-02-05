@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 20:38:42 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/05 21:48:10 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/05 22:07:28 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,7 @@ static void	radix_sort(t_vars *vars, int mask)
 		i++;
 	}
 	while (vars->stk_b != NULL)
-	{
-		rrb(vars);
 		pa(vars);
-		ra(vars);
-	}
 }
 
 static int	ft_is_sorted(t_vars *vars)
@@ -47,7 +43,7 @@ static int	ft_is_sorted(t_vars *vars)
 	{
 		if (curr->prev)
 		{
-			if (curr->prev->val < curr->val)
+			if (curr->prev->val > curr->val)
 				return (1);
 		}
 		curr = curr->next;
@@ -57,8 +53,6 @@ static int	ft_is_sorted(t_vars *vars)
 
 void	ft_radix(t_vars *vars)
 {
-	int	i;
-	int	i_max;
 	int	mask;
 
 	mask = 0;
@@ -66,19 +60,5 @@ void	ft_radix(t_vars *vars)
 	{
 		radix_sort(vars, mask);
 		mask++;
-	}
-	i_max = vars->len_a;
-	i = 0;
-	while (i < i_max)
-	{
-		rra(vars);
-		pb(vars);
-		i++;
-	}
-	i = 0;
-	while (i < i_max)
-	{
-		pa(vars);
-		i++;
 	}
 }
