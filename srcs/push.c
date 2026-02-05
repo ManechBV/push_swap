@@ -1,5 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/02/05 21:25:38 by mabenois          #+#    #+#             */
+/*   Updated: 2026/02/05 21:25:39 by mabenois         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 #include "vars.h"
+#include "ft_printf.h"
 
 void	pa(t_vars *vars)
 {
@@ -21,6 +34,7 @@ void	pa(t_vars *vars)
 	vars->stk_b = tmp;
 	vars->len_a++;
 	vars->len_b--;
+	ft_printf("pa\n");
 }
 
 void	pb(t_vars *vars)
@@ -43,4 +57,5 @@ void	pb(t_vars *vars)
 	vars->stk_a = tmp;
 	vars->len_b++;
 	vars->len_a--;
+	ft_printf("pb\n");
 }

@@ -6,12 +6,13 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 20:18:18 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/05 20:42:15 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/05 21:20:21 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vars.h"
 
+/*
 #include <stdio.h> //   AAAAA EEENNNNLLLLEEEVVVVVEEERRRRRR
 static void	_debug_show_stacks(t_vars *vars)
 {
@@ -60,6 +61,7 @@ static void	_debug_show_stacks(t_vars *vars)
 	}
 	printf("-- \t --\nl:%d \t l:%d\n", vars->len_a, vars->len_b);
 }
+*/
 
 int	main(int ac, char **av)
 {
@@ -71,9 +73,9 @@ int	main(int ac, char **av)
 	if (!vars)	
 		return (-1);
 	ft_convert_argv(ac, av, vars);
-	_debug_show_stacks(vars);
 	/*
 
+	_debug_show_stacks(vars);
 	sa(vars);
 	_debug_show_stacks(vars);
 
@@ -92,7 +94,6 @@ int	main(int ac, char **av)
 	_debug_show_stacks(vars);
 	*/
 	ft_radix(vars);
-	_debug_show_stacks(vars);
 
 	free_vars(vars);
 	return (0);

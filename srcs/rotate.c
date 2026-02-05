@@ -6,14 +6,14 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 19:45:57 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/05 19:46:00 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/05 21:25:28 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "vars.h"
+#include "ft_printf.h"
 
-#include <stdio.h>
 void	rotate(t_lst **p_head)
 {
 	t_lst	*first;
@@ -35,7 +35,10 @@ void	rotate(t_lst **p_head)
 void	ra(t_vars *vars)
 {
 	if (vars->len_a > 2)
+	{
 		rotate(&vars->stk_a);
+		ft_printf("ra\n");
+	}
 	else if (vars->len_a == 2)
 		sa(vars);
 }
@@ -43,7 +46,10 @@ void	ra(t_vars *vars)
 void	rb(t_vars *vars)
 {
 	if (vars->len_b > 2)
+	{
 		rotate(&vars->stk_b);
+		ft_printf("rb\n");
+	}
 	else if (vars->len_b == 2)
 		sb(vars);
 }

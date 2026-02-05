@@ -6,12 +6,13 @@
 /*   By: mabenois <mabenois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 16:10:07 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/05 20:06:07 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/05 21:25:21 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "vars.h"
+#include "ft_printf.h"
 
 void	swap(t_lst **p_head)
 {
@@ -40,13 +41,19 @@ void	swap(t_lst **p_head)
 void	sa(t_vars *vars)
 {
 	if (vars->len_a > 1)
+	{
 		swap(&vars->stk_a);
+		ft_printf("sa\n");
+	}
 }
 
 void	sb(t_vars *vars)
 {
 	if (vars->len_b > 1)
+	{
 		swap(&vars->stk_b);
+		ft_printf("sb\n");
+	}
 }
 
 void	ss(t_vars *vars)

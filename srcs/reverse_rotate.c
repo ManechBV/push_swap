@@ -6,12 +6,13 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 19:44:49 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/05 19:58:25 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/05 21:25:33 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "vars.h"
+#include "ft_printf.h"
 
 #include <stdio.h>
 void	rrotate(t_lst **p_head)
@@ -35,7 +36,10 @@ void	rrotate(t_lst **p_head)
 void	rra(t_vars *vars)
 {
 	if (vars->len_a > 2)
+	{
 		rrotate(&vars->stk_a);
+		ft_printf("rra\n");
+	}
 	else if (vars->len_a == 2)
 		sa(vars);
 }
@@ -43,7 +47,10 @@ void	rra(t_vars *vars)
 void	rrb(t_vars *vars)
 {
 	if (vars->len_b > 2)
+	{
 		rrotate(&vars->stk_b);
+		ft_printf("rrb\n");
+	}
 	else if (vars->len_b == 2)
 		sb(vars);
 }
