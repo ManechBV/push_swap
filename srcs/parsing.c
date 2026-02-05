@@ -1,19 +1,107 @@
 #include "vars.h"
 #include "libft.h"
 
+static int	occ_val_lst(t_vars *vars, int n)
+{
+	t_lst	*curr;
+	int		occ;
+
+	occ = 0;
+	curr = vars->stk_a;
+	while (curr)
+	{
+		if (curr->val == n)
+			occ++;
+		curr = curr->next;
+	}
+	return (occ);
+}
+
+static int	add_split_to_lst(char **pchr, t_vars *vars)
+{
+	int		i;
+	long	res;
+	
+	i = 0;
+	while (pchr[i] != NULL)
+	{
+		res = ft_atoi(pchr[i]);
+		if (res > 2147483647 || res < -2147483648)
+			return (-1);
+		if (!vars->stk_a)
+		{
+			vars->stk_a = new_lst((int) res);
+			if (!vars->stk_a)
+				return (-1);
+		}
+		else
+			append_lst(vars->stk_a, (int) res); 
+		if (occ_val_lst(vars, (int) res) > 1)
+			return (-1);
+		vars->len_a++;
+		i++;
+	}
+	return (0);
+}
+
+static void	free_split(char **split)
+{
+	int		j;
+
+	j = 0;
+	while (split[j] != NULL)
+	{
+		free(split[j]);
+		j++;
+	}
+	free(split);
+}
+
+static int	only_digit(char **split)
+{
+	int	i;
+	int j;
+
+	i = 0;
+	while (split[i])
+	{
+		if (ft_strlen(split[i]) > 11)
+			return (1);
+		j = 0;
+		while (split[i][j])
+		{
+			if (ft_isdigit(split[i][j]) == 0 && split[i][j] != '-')
+				return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
 int	ft_convert_argv(int argc, char **argv, t_vars *vars)
 {
 	int		i;
-	t_lst	*lst;
+	char	**split;
 
-	lst = new_lst(0);
-	if (!lst)
-		return (-1);
 	i = 1;
-	lst->val = ft_atoi(argv[i]);
-	while (++i < argc)
-		append_lst(lst, ft_atoi(argv[i]));
-	vars->len_a = i - 1;
-	vars->stk_a = lst;
+	while (i < argc)
+	{
+		split = ft_split(argv[i], ' ');
+		if (!split)
+			return (-1);
+		if (only_digit(split) == 1)
+		{
+			free_split(split);
+			return (-1);
+		}
+		if (add_split_to_lst(split, vars) == -1)
+		{
+			free_split(split);
+			return (-1);
+		}
+		free_split(split);
+		i++;
+	}
 	return (0);
 }

@@ -6,13 +6,15 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 20:18:18 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/05 21:20:21 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/06 00:05:46 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "vars.h"
+#include "libft.h"
 
-/*
+
+	/*
 #include <stdio.h> //   AAAAA EEENNNNLLLLEEEVVVVVEEERRRRRR
 static void	_debug_show_stacks(t_vars *vars)
 {
@@ -63,6 +65,7 @@ static void	_debug_show_stacks(t_vars *vars)
 }
 */
 
+
 int	main(int ac, char **av)
 {
 	t_vars	*vars;
@@ -72,7 +75,10 @@ int	main(int ac, char **av)
 	vars = init_vars();
 	if (!vars)	
 		return (-1);
-	ft_convert_argv(ac, av, vars);
+	if (ft_convert_argv(ac, av, vars) == -1)
+		ft_putendl_fd("Error", 2);
+	else
+		ft_radix(vars);
 	/*
 
 	_debug_show_stacks(vars);
@@ -93,8 +99,6 @@ int	main(int ac, char **av)
 	rrr(vars);
 	_debug_show_stacks(vars);
 	*/
-	ft_radix(vars);
-
 	free_vars(vars);
 	return (0);
 }
