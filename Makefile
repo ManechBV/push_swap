@@ -10,7 +10,7 @@ SRCS = srcs/main.c \
 OBJS = $(SRCS:srcs/%.c=objs/%.o)
 CC = cc
 FLAGS = -Wall -Wextra -Werror -g
-NAME = push_swap.exe
+NAME = push_swap
 INCLUDE_DIRS = -I includes -I libft -I ft_printf
 
 all: objs libft ft_printf $(NAME)

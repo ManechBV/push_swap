@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/05 18:09:22 by mabenois          #+#    #+#             */
-/*   Updated: 2026/01/26 22:53:27 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/05 21:35:17 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	ft_printchar(char c)
 {
-	ft_putchar_fd(c, 2);
+	ft_putchar_fd(c, 1);
 	return (1);
 }
 
