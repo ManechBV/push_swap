@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 19:44:49 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/05 21:25:33 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/06 23:04:04 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 #include "vars.h"
 #include "ft_printf.h"
 
-#include <stdio.h>
 void	rrotate(t_lst **p_head)
 {
 	t_lst	*first;
@@ -60,4 +59,3 @@ void	rrr(t_vars *vars)
 	rra(vars);
 	rrb(vars);
 }
-

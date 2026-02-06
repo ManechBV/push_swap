@@ -6,7 +6,7 @@
 /*   By: mabenois <mabenois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 16:10:07 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/06 21:25:47 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/06 23:03:16 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	swap(t_lst **p_head)
 	t_lst	*first;
 	t_lst	*second;
 	t_lst	*third;
-	
+
 	first = *p_head;
 	second = first->next;
 	first->prev = second;
@@ -62,7 +62,7 @@ void	ss(t_vars *vars)
 	sb(vars);
 }
 
-void			sa_rra(t_vars *vars)
+void	sa_rra(t_vars *vars)
 {
 	sa(vars);
 	rra(vars);

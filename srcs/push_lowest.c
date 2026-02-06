@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 21:32:02 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/06 22:42:58 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/06 23:51:07 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	push_lowest(t_vars *vars)
 		while (i[0]-- > 0)
 			ra(vars);
 	else
-		while (i[0]++ < vars->len_a)	
+		while (i[0]++ < vars->len_a)
 			rra(vars);
 	pb(vars);
 }

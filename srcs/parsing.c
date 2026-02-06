@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 00:08:18 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/06 22:24:08 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/06 23:05:32 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static int	add_split_to_lst(char **pchr, t_vars *vars)
 {
 	int		i;
 	long	res;
-	
+
 	i = 0;
 	while (pchr[i] != NULL)
 	{
@@ -47,7 +47,7 @@ static int	add_split_to_lst(char **pchr, t_vars *vars)
 				return (-1);
 		}
 		else
-			append_lst(vars->stk_a, (int) res); 
+			append_lst(vars->stk_a, (int) res);
 		if (occ_val_lst(vars, (int) res) > 1)
 			return (-1);
 		vars->len_a++;
@@ -72,7 +72,7 @@ static void	free_split(char **split)
 static int	only_digit(char **split)
 {
 	int		i;
-	int 	j;
+	int		j;
 	char	c;
 
 	i = 0;

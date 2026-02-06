@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 20:38:42 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/06 22:07:18 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/06 23:04:41 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,9 +93,7 @@ void	ft_choose_sort(t_vars *vars)
 	int	mask;
 
 	if (ft_is_sorted(vars) == 0)
-	{
 		return ;
-		}
 	if (vars->len_a == 2)
 	{
 		if (vars->stk_a->val > vars->stk_a->next->val)
@@ -105,7 +103,7 @@ void	ft_choose_sort(t_vars *vars)
 		three_sort(vars);
 	else if (vars->len_a <= 5)
 		five_sort(vars);
-	else 
+	else
 	{
 		mask = 0;
 		while (mask < 16 && ft_is_sorted(vars) == 1)

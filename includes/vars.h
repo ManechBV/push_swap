@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 00:09:14 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/06 21:31:22 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/06 23:01:43 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_vars
 }	t_vars;
 
 // vars.c
-t_vars			*init_vars();
+t_vars			*init_vars(void);
 void			free_vars(t_vars *vars);
 
 // parsing.c

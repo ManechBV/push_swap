@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/16 13:59:13 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/05 23:44:32 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/06 23:55:06 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static int	ft_isspace(char c)
 
 long	ft_atoi(const char *nptr)
 {
-	int	i;
+	int		i;
 	long	sign;
 	long	result;
 

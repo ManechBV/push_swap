@@ -6,14 +6,14 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 00:08:28 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/06 00:08:29 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/06 23:53:04 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "vars.h"
 
-t_vars	*init_vars()
+t_vars	*init_vars(void)
 {
 	t_vars	*new;
 
