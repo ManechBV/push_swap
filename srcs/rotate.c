@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 19:45:57 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/05 21:25:28 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/06 20:52:57 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,4 +58,11 @@ void	rr(t_vars *vars)
 {
 	ra(vars);
 	rb(vars);
+}
+
+void	ra_sa_rra(t_vars *vars)
+{
+	ra(vars);
+	sa(vars);
+	rra(vars);
 }

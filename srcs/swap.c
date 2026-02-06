@@ -6,7 +6,7 @@
 /*   By: mabenois <mabenois@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/31 16:10:07 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/05 21:25:21 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/06 21:25:47 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,4 +60,10 @@ void	ss(t_vars *vars)
 {
 	sa(vars);
 	sb(vars);
+}
+
+void			sa_rra(t_vars *vars)
+{
+	sa(vars);
+	rra(vars);
 }

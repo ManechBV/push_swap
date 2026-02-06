@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 00:08:18 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/06 00:08:19 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/06 22:24:08 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,8 +71,9 @@ static void	free_split(char **split)
 
 static int	only_digit(char **split)
 {
-	int	i;
-	int j;
+	int		i;
+	int 	j;
+	char	c;
 
 	i = 0;
 	while (split[i])
@@ -82,7 +83,8 @@ static int	only_digit(char **split)
 		j = 0;
 		while (split[i][j])
 		{
-			if (ft_isdigit(split[i][j]) == 0 && split[i][j] != '-')
+			c = split[i][j];
+			if (ft_isdigit(c) == 0 && c != '-')
 				return (1);
 			j++;
 		}

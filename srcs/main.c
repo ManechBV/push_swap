@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/27 20:18:18 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/06 00:05:46 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/06 19:00:22 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int	main(int ac, char **av)
 	if (ft_convert_argv(ac, av, vars) == -1)
 		ft_putendl_fd("Error", 2);
 	else
-		ft_radix(vars);
+		ft_choose_sort(vars);
 	/*
 
 	_debug_show_stacks(vars);

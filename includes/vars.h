@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 00:09:14 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/06 00:09:15 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/06 21:31:22 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void			swap(t_lst **p_head);
 void			sa(t_vars *vars);
 void			sb(t_vars *vars);
 void			ss(t_vars *vars);
+void			sa_rra(t_vars *vars);
 
 // push.c
 void			pa(t_vars *vars);
@@ -45,6 +46,7 @@ void			rotate(t_lst **p_head);
 void			ra(t_vars *vars);
 void			rb(t_vars *vars);
 void			rr(t_vars *vars);
+void			ra_sa_rra(t_vars *vars);
 
 // reverse_rotate.c
 void			rrotate(t_lst **p_head);
@@ -53,6 +55,9 @@ void			rrb(t_vars *vars);
 void			rrr(t_vars *vars);
 
 // ft_radix.c
-void	ft_radix(t_vars *vars);
+void			ft_choose_sort(t_vars *vars);
+
+// push_lowest.c
+void			push_lowest(t_vars *vars);
 
 #endif

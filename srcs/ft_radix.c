@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 20:38:42 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/05 22:07:28 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/06 22:07:18 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ static int	ft_is_sorted(t_vars *vars)
 {
 	t_lst	*curr;
 
-	if (vars->stk_b)
-		return (1);
 	curr = vars->stk_a;
 	while (curr)
 	{
@@ -51,14 +49,69 @@ static int	ft_is_sorted(t_vars *vars)
 	return (0);
 }
 
-void	ft_radix(t_vars *vars)
+static void	three_sort(t_vars *vars)
+{
+	t_lst	*lst[3];
+
+	lst[0] = vars->stk_a;
+	lst[1] = vars->stk_a->next;
+	lst[2] = vars->stk_a->next->next;
+	if (lst[0]->val > lst[1]->val)
+	{
+		if (lst[2]->val > lst[0]->val)
+		{
+			sa(vars);
+			if (ft_is_sorted(vars) == 1)
+				rra(vars);
+		}
+		else
+		{
+			if (lst[2]->val > lst[1]->val)
+				ra(vars);
+			else
+				sa_rra(vars);
+		}
+	}
+	else if (lst[0]->val < lst[2]->val)
+		ra_sa_rra(vars);
+	else
+		rra(vars);
+}
+
+static void	five_sort(t_vars *vars)
+{
+	while (vars->len_a > 3)
+		push_lowest(vars);
+	if (ft_is_sorted(vars) == 1)
+		three_sort(vars);
+	pa(vars);
+	pa(vars);
+}
+
+void	ft_choose_sort(t_vars *vars)
 {
 	int	mask;
 
-	mask = 0;
-	while (mask < 16 && ft_is_sorted(vars) == 1)
+	if (ft_is_sorted(vars) == 0)
 	{
-		radix_sort(vars, mask);
-		mask++;
+		return ;
+		}
+	if (vars->len_a == 2)
+	{
+		if (vars->stk_a->val > vars->stk_a->next->val)
+			sa(vars);
+	}
+	else if (vars->len_a == 3)
+		three_sort(vars);
+	else if (vars->len_a <= 5)
+		five_sort(vars);
+	else 
+	{
+		mask = 0;
+		while (mask < 16 && ft_is_sorted(vars) == 1)
+		{
+			radix_sort(vars, mask);
+			mask++;
+		}
 	}
 }
