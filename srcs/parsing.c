@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 00:08:18 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/06 23:05:32 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/10 19:16:38 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,13 @@ static int	only_digit(char **split)
 	int		i;
 	int		j;
 	char	c;
+	char	*pchr;
 
 	i = 0;
 	while (split[i])
 	{
-		if (ft_strlen(split[i]) > 11)
+		pchr = ft_ptr_to_first_nb(split[i]);
+		if (ft_strlen(pchr) > 11)
 			return (1);
 		j = 0;
 		while (split[i][j])

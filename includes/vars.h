@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 00:09:14 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/06 23:01:43 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/10 18:48:18 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,5 +59,8 @@ void			ft_choose_sort(t_vars *vars);
 
 // push_lowest.c
 void			push_lowest(t_vars *vars);
+
+// ft_ptr_to_first_nb.c
+char			*ft_ptr_to_first_nb(char *pchr);
 
 #endif
