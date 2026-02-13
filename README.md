@@ -41,7 +41,8 @@ I used the LSD (Least Significant Digit) Radix sort, so it sort the numbers
 by seing them as bits instead of base 10 numbers.
 
 # Instructions
-run make, then ./push_swap STACK_A
+run `make`, then ./push_swap STACK_A
+
 STACK_A needs to be a list of integers ex: "5 7 2 -4"
 
 # Resources
