@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 00:09:14 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/13 15:53:51 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/13 20:34:19 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,5 +64,8 @@ void			push_lowest(t_vars *vars);
 // ft_ptr_to_first_nb.c
 char			*ft_ptr_to_first_nb(char *pchr);
 size_t			ft_longlen(long n);
+
+// ft_normalize.c
+void			ft_normalize(t_vars *vars);
 
 #endif

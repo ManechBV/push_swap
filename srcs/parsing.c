@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 00:08:18 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/13 15:48:49 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/13 19:50:50 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int	add_split_to_lst(char **pchr, t_vars *vars)
 	while (pchr[i] != NULL)
 	{
 		res = ft_atoi(pchr[i]);
-		if (ft_strlen(pchr[i]) != ft_longlen(res))
+		if (ft_strlen(ft_ptr_to_first_nb(pchr[i])) != ft_longlen(res))
 			return (-1);
 		if (res > 2147483647 || res < -2147483648)
 			return (-1);
@@ -88,7 +88,7 @@ static int	only_digit(char **split)
 		while (split[i][j])
 		{
 			c = split[i][j];
-			if (ft_isdigit(c) == 0 && c != '-')
+			if (ft_isdigit(c) == 0 && c != '-' && c != ' ' && c != '+')
 				return (1);
 			j++;
 		}

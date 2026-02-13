@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 00:08:36 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/06 00:08:37 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/13 20:25:03 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_lst	*new_lst(int val)
 	if (!new)
 		return (NULL);
 	new->val = val;
-	new->id = 0;
+	new->id = -1;
 	new->next = NULL;
 	new->prev = NULL;
 	return (new);

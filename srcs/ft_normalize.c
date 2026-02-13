@@ -1,23 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_normalize.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/14 15:39:23 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/13 19:48:20 by mabenois         ###   ########.fr       */
+/*   Created: 2026/02/13 20:26:04 by mabenois          #+#    #+#             */
+/*   Updated: 2026/02/13 20:38:20 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include <stdlib.h>
+#include "vars.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_normalize(t_vars *vars)
 {
-	int	i;
+	t_lst	*curr;
+	t_lst	*lowest;
+	int		i;
 
 	i = 0;
-	while (s[i])
+	while (i < vars->len_a)
+	{
+		curr = vars->stk_a;
+		lowest = NULL;
+		while (curr)
+		{
+			if (!lowest || curr->val < lowest->val)
+				if (curr->id == -1)
+					lowest = curr;
+			curr = curr->next;
+		}
+		lowest->id = i;
 		i++;
-	return (i);
+	}
 }

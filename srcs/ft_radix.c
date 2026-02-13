@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/05 20:38:42 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/06 23:04:41 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/13 20:41:55 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	radix_sort(t_vars *vars, int mask)
 	i = 0;
 	while (i < nb_loops)
 	{
-		if ((vars->stk_a->val & (1 << mask)) == 0)
+		if ((vars->stk_a->id & (1 << mask)) == 0)
 			pb(vars);
 		else
 			ra(vars);
@@ -41,7 +41,7 @@ static int	ft_is_sorted(t_vars *vars)
 	{
 		if (curr->prev)
 		{
-			if (curr->prev->val > curr->val)
+			if (curr->prev->id > curr->id)
 				return (1);
 		}
 		curr = curr->next;
