@@ -6,7 +6,7 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 00:08:18 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/10 19:16:38 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/13 15:48:49 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ static int	add_split_to_lst(char **pchr, t_vars *vars)
 	while (pchr[i] != NULL)
 	{
 		res = ft_atoi(pchr[i]);
+		if (ft_strlen(pchr[i]) != ft_longlen(res))
+			return (-1);
 		if (res > 2147483647 || res < -2147483648)
 			return (-1);
 		if (!vars->stk_a)

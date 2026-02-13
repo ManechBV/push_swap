@@ -6,13 +6,14 @@
 /*   By: mabenois <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 00:09:14 by mabenois          #+#    #+#             */
-/*   Updated: 2026/02/10 18:48:18 by mabenois         ###   ########.fr       */
+/*   Updated: 2026/02/13 15:53:51 by mabenois         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef VARS_H
 # define VARS_H
 
+# include <stdlib.h>
 # include "lst.h"
 
 typedef struct s_vars
@@ -62,5 +63,6 @@ void			push_lowest(t_vars *vars);
 
 // ft_ptr_to_first_nb.c
 char			*ft_ptr_to_first_nb(char *pchr);
+size_t			ft_longlen(long n);
 
 #endif
